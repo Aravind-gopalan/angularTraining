@@ -7,8 +7,7 @@ import {Products} from '../Models/products';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
-  product: Products = new Products;
+  searchText = '';
   products: Products[] = [
     {
       Id: 1,
@@ -37,18 +36,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
   }
-  Save() {
-    console.log('button clicked');
-  }
-  onChange(e) {
-    console.log(e.target.value);
-  }
-  applyBadge(product) {
-    return product.IsProductAvailable ? 'badge-success' : 'badge-danger';
-  }
-  SubmitProduct() {
-    this.products.unshift(this.product);
-    this.product = new Products;
+  OnProdutCreated(e) {
+    this.products.unshift(e);
   }
 
 }
